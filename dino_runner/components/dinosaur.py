@@ -38,9 +38,9 @@ class Dinosaur:
 
     def duck(self):
         self.image = DUCKING[0] if self.step_index < 5 else DUCKING[1]
-        self.dino_rect.y = Y_POS + 35
+        self.dino_rect.y = Y_POS + 35 
         self.step_index += 1
-        self.dino_duck = False
+        self.dino_duck = False 
 
     def update(self, user_input):
         if user_input[pygame.K_UP] and not self.dino_jump:
@@ -52,7 +52,13 @@ class Dinosaur:
             self.dino_run = False
         
         if user_input[pygame.K_DOWN] and self.dino_jump:
-            self.jump_vel -= 1.7
+            self.jump_vel -= 1.7 
+        
+        if user_input[pygame.K_RIGHT]:
+            self.dino_rect.x += 10 
+        
+        if user_input[pygame.K_LEFT]:
+            self.dino_rect.x -= 10 
 
         elif not self.dino_jump and not self.dino_duck:
             self.dino_jump = False
