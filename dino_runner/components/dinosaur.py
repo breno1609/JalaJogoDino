@@ -21,7 +21,7 @@ class Dinosaur:
     def run(self):        
         self.image = RUNNING[0] if self.step_index < 5 else RUNNING[1]
         #self.dino_rect = self.image.get_rect()
-        #self.dino_rect.x = X_POS
+        #self.dino_rect.x = X_POS 
         self.dino_rect.y = Y_POS
         self.step_index += 1
 
@@ -31,6 +31,7 @@ class Dinosaur:
             self.dino_rect.y -= self.jump_vel * 4
             self.jump_vel -= 0.8
 
+        #sIGINIFICA QUE ELE JÁ ESTÁ NO SOLO
         if self.jump_vel < -JUMP_VEL:
             self.dino_rect.y = Y_POS
             self.dino_jump = False
@@ -38,7 +39,7 @@ class Dinosaur:
 
     def duck(self):
         self.image = DUCKING[0] if self.step_index < 5 else DUCKING[1]
-        self.dino_rect.y = Y_POS + 35 
+        self.dino_rect.y = Y_POS + 35  #Atualiza a posição do dinossauro
         self.step_index += 1
         self.dino_duck = False 
 
