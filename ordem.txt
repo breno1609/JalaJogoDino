@@ -1,0 +1,5 @@
+1° Foi implementado o comando de abaixar
+2° Foi implemnetado o comando de se mover para a direita e para a esquerda
+4° Foi implementado no game.py, self.player para azer com que o jogo rode
+5° Na game.py, no metodo update foi acrescentado a atualização das entradas dos usuario
+6° No draw, foi acrescentado o desenho do player na tela
