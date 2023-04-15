@@ -31,7 +31,6 @@ class Dinosaur:
             self.dino_rect.y -= self.jump_vel * 4
             self.jump_vel -= 0.8
 
-        #sIGINIFICA QUE ELE JÁ ESTÁ NO SOLO
         if self.jump_vel < -JUMP_VEL:
             self.dino_rect.y = Y_POS
             self.dino_jump = False
@@ -39,7 +38,7 @@ class Dinosaur:
 
     def duck(self):
         self.image = DUCKING[0] if self.step_index < 5 else DUCKING[1]
-        self.dino_rect.y = Y_POS + 35  #Atualiza a posição do dinossauro
+        self.dino_rect.y = Y_POS + 35
         self.step_index += 1
         self.dino_duck = False 
 
@@ -47,31 +46,27 @@ class Dinosaur:
         if user_input[pygame.K_UP] and not self.dino_jump:
             self.dino_jump = True
             self.dino_run = False
-        
         if user_input[pygame.K_DOWN] and not self.dino_jump:
             self.dino_duck = True
             self.dino_run = False
-        
         if user_input[pygame.K_DOWN] and self.dino_jump:
             self.jump_vel -= 1.7 
+        elif not self.dino_jump and not self.dino_duck:
+            self.dino_run = True 
         
         if user_input[pygame.K_RIGHT]:
             self.dino_rect.x += 10 
-        
-        if user_input[pygame.K_LEFT]:
+            if self.dino_rect.x > 1000:
+                self.dino_rect.x = 1000
+        elif user_input[pygame.K_LEFT]:
             self.dino_rect.x -= 10 
-
-        elif not self.dino_jump and not self.dino_duck:
-            self.dino_jump = False
-            self.dino_duck = False
-            self.dino_run = True
+            if self.dino_rect.x < 1:
+                self.dino_rect.x = 1
         
         if self.dino_run:
-            self.run()
-            
+            self.run()    
         elif self.dino_jump:
             self.jump()
-            
         elif self.dino_duck:
             self.duck()
 
