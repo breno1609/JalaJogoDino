@@ -85,8 +85,11 @@ class Game:
             self.x_pos_bg = 0
         self.x_pos_bg -= self.game_speed
     
-    #MODULO PARA REUTILIZAR AS FONTES
+    #PARA REUTILIZAR AS FONTES
     def method_draw_score_deaths(self,texto,x,y,rgb):
+        half_screen_height = SCREEN_HEIGHT // 2
+        half_screen_widht = SCREEN_WIDTH // 2
+        
         text = self.font.render(texto, True, rgb)
         text_rect = text.get_rect()
         text_rect.center = (x, y)
