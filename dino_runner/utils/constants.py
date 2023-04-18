@@ -7,7 +7,7 @@ SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 1100
 FPS = 30
 IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
-
+FONT_STYLE = "freesansbold.ttf"
 # Assets Constants
 ICON = pygame.image.load(os.path.join(IMG_DIR, "DinoWallpaper.png"))
 
@@ -66,7 +66,10 @@ SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
 
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
+MENU = pygame.image.load(os.path.join(IMG_DIR, 'Other/backmenu2.jpg'))
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
+
+LOGODINORUN = pygame.image.load(os.path.join(IMG_DIR, 'Other/logo.png'))
 
 DEFAULT_TYPE = "default"
