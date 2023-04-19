@@ -67,6 +67,13 @@ HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
 
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
 MENU = pygame.image.load(os.path.join(IMG_DIR, 'Other/backmenu2.jpg'))
+COIN = [
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/coin/star1.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/coin/star2.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/coin/star3.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/coin/star5.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/coin/star6.png'))
+]
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 

@@ -4,6 +4,7 @@ import pygame
 from dino_runner.components.power_ups.shield import Shield
 from dino_runner.components.power_ups.hammer import Hammer
 from dino_runner.components.power_ups.life import Heart
+from dino_runner.components.power_ups.coin import Coin
 from dino_runner.components.game import *
 
 
@@ -25,8 +26,14 @@ class PowerUpManager:
         
         if len(self.life) == 0 and self.heart == score:
             self.heart += random.randint(300, 400)
-            self.life.append(Heart())
             
+            choice_randomic = random.randint(0, 1)
+            if choice_randomic == 0:
+                self.life.append(Heart())
+                self.item = 1
+            elif choice_randomic == 1:
+                self.life.append(Coin(COIN))
+                self.item = 2
 
     def update(self, game):
         self.generate_power_up(game.score)
@@ -45,9 +52,12 @@ class PowerUpManager:
         for heart in self.life:
             heart.update(game.game_speed, self.life)
             
-            if game.player.dino_rect.colliderect(heart.rect):
+            if game.player.dino_rect.colliderect(heart.rect) and self.item == 1:
                 self.life.remove(heart)
                 game.life += 1
+            elif game.player.dino_rect.colliderect(heart.rect) and self.item == 2:
+                self.life.remove(heart)
+                game.score += 100
 
     def draw(self, screen):
         for power_up in self.power_ups:

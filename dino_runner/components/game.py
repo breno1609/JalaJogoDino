@@ -1,13 +1,18 @@
 import pygame
 import time
+
 from dino_runner.utils.constants import *
 from dino_runner.utils.constants import BG,ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, FONT_STYLE
 from dino_runner.components.dinosaur import *
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 from dino_runner.components.power_ups.power_up import *
+
+
 half_screen_height = SCREEN_HEIGHT // 2
 half_screen_widht = SCREEN_WIDTH // 2
+
+
 class Game:
     def __init__(self):
         pygame.init()
@@ -139,31 +144,22 @@ class Game:
                     self.reset_game()
                     self.run()
     
-    def menu_message(self,texto,rgb,x,y):
-        half_screen_height = SCREEN_HEIGHT // 2
-        half_screen_widht = SCREEN_WIDTH // 2
-        
-        text = self.font.render(texto, True, rgb)
-        text_rect = text.get_rect()
-        text_rect.center = (half_screen_widht + x, half_screen_height + y)
-        self.screen.blit(text, text_rect)
-    
     def show_menu(self):
         self.screen.fill((255, 255, 255))
-        
-        half_screen_height = SCREEN_HEIGHT // 2
-        half_screen_widht = SCREEN_WIDTH // 2
 
         if self.death_count == 0:
             self.screen.blit(MENU, (self.x_pos_bg, 0))
             self.screen.blit(LOGODINORUN, (SCREEN_WIDTH - LOGODINORUN.get_width() - 290, 180))
-            self.menu_message("Press (s) to start playing.",(0,0,0),0,140)
+            self.method_draw_score_deaths("Press (s) to start playing.",600,540,(0,0,0))
         else:
             self.screen.blit(ICON, (half_screen_widht - 20, half_screen_height - 140))
-            self.menu_message("Press (c) to continue playing.",(0,0,0),0,60)
-            self.menu_message("Press (r) to restart game.",(0,0,0),0,100)
-            self.menu_message(f"Your Score: {self.score}",(0,255,0),0,150)
-            self.menu_message(f"Death count: {self.death_count}",(204,0,0),0,190)
+            self.method_draw_score_deaths("Press (c) to continue playing.",600,350,(0,0,0))
+            
+            self.method_draw_score_deaths("Press (r) to restart playing.",600, 400,(0,0,0))
+            
+            self.method_draw_score_deaths(f"Your Score: {self.score}",600, 450,(0,255,0))
+            
+            self.method_draw_score_deaths(f"Death count: {self.death_count}",600,500,(204,0,0))
             
         pygame.display.flip()
         
