@@ -140,8 +140,6 @@ class Game:
             elif event.type == pygame.KEYDOWN:
                 if pygame.key.get_pressed()[pygame.K_s] and self.death_count == 0:
                     self.run()
-                #elif pygame.key.get_pressed()[pygame.K_c]:
-                    #self.run()
                 elif pygame.key.get_pressed()[pygame.K_r]:
                     self.reset_game()
                     self.run()
@@ -155,12 +153,8 @@ class Game:
             self.method_draw_score_deaths("Press (s) to start playing.",600,540,(0,0,0))
         else:
             self.screen.blit(ICON, (half_screen_widht - 20, half_screen_height - 140))
-            #self.method_draw_score_deaths("Press (c) to continue playing.",600,350,(0,0,0))
-            
             self.method_draw_score_deaths("Press (r) to restart playing.",600, 400,(0,0,0))
-            
             self.method_draw_score_deaths(f"Your Score: {self.score}",600, 450,(0,255,0))
-            
             self.method_draw_score_deaths(f"Death count: {self.death_count}",600,500,(204,0,0))
             
         pygame.display.flip()
