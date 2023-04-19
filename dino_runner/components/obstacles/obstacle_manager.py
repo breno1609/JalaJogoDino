@@ -5,9 +5,20 @@ from dino_runner.components.obstacles.cactus import *
 from dino_runner.components.obstacles.bird import *
 from dino_runner.utils.constants import *
 
+
 class ObstacleManager:
     def __init__(self):
         self.obstacles = []
+        
+    def lose_condition(self,game):
+        HITSOUND.play()
+        pygame.time.delay(500)
+        game.life -=1
+        self.reset_obstacles()
+        if game.life == 0:
+            game.playing = False
+            DEATHSOUND.play()
+            game.death_count += 1
     
     def update(self, game):
         if len(self.obstacles) == 0:
@@ -26,10 +37,10 @@ class ObstacleManager:
             obstacle.update(game.game_speed, self.obstacles)
             if game.player.dino_rect.colliderect(obstacle.rect):
                 if not game.player.has_power_up:
-                    game.life -= 1
-                    pygame.time.delay(1000)
-                    game.playing = False
-                    game.death_count += 1
+                    self.lose_condition(game)
+                    DEATHSOUND.play()
+                    pygame.time.delay(500)
+                    game.death_count+=1
                     break
                 elif game.player.has_power_up:
                     if game.player.type == SHIELD_TYPE and self.item == 2:

@@ -43,12 +43,14 @@ class Game:
         pygame.quit()
     
     def run(self):
+        SOUNDTRACK.play(-1)
         self.playing = True
         self.obstacle_manager.reset_obstacles()
         while self.playing:
             self.events()
             self.update()
             self.draw()
+        SOUNDTRACK.stop()
     
     def reset_game(self):
         self.obstacle_manager.reset_obstacles()
@@ -138,8 +140,8 @@ class Game:
             elif event.type == pygame.KEYDOWN:
                 if pygame.key.get_pressed()[pygame.K_s] and self.death_count == 0:
                     self.run()
-                elif pygame.key.get_pressed()[pygame.K_c]:
-                    self.run()
+                #elif pygame.key.get_pressed()[pygame.K_c]:
+                    #self.run()
                 elif pygame.key.get_pressed()[pygame.K_r]:
                     self.reset_game()
                     self.run()
@@ -153,7 +155,7 @@ class Game:
             self.method_draw_score_deaths("Press (s) to start playing.",600,540,(0,0,0))
         else:
             self.screen.blit(ICON, (half_screen_widht - 20, half_screen_height - 140))
-            self.method_draw_score_deaths("Press (c) to continue playing.",600,350,(0,0,0))
+            #self.method_draw_score_deaths("Press (c) to continue playing.",600,350,(0,0,0))
             
             self.method_draw_score_deaths("Press (r) to restart playing.",600, 400,(0,0,0))
             

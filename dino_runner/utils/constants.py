@@ -79,6 +79,12 @@ HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 
 LOGODINORUN = pygame.image.load(os.path.join(IMG_DIR, 'Other/logo.png'))
 
+pygame.mixer.init()
+SOUNDTRACK = pygame.mixer.Sound('dino_runner/assets/Sounds/soundtrack.mp3')
+SOUNDTRACK.set_volume(0.5)
+DEATHSOUND = pygame.mixer.Sound('dino_runner/assets/Sounds/death.wav')
+HITSOUND = pygame.mixer.Sound('dino_runner/assets/Sounds/hit01.wav')
+
 DEFAULT_TYPE = "default"
 SHIELD_TYPE = 'shield'
 HAMMER_TYPE = "hammer"
