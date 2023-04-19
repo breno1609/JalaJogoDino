@@ -113,6 +113,7 @@ class Game:
             self.x_pos_bg = 0
         self.x_pos_bg -= self.game_speed
     
+    
     #PARA REUTILIZAR AS FONTES
     def method_draw_score_deaths(self,texto,x,y,rgb):
         half_screen_height = SCREEN_HEIGHT // 2

@@ -88,6 +88,10 @@ HITSOUND = pygame.mixer.Sound('dino_runner/assets/Sounds/hit01.wav')
 JUMP_SOUND = pygame.mixer.Sound('dino_runner/assets/Sounds/jump.wav')
 JUMP_SOUND.set_volume(0.7)
 
+BACKGROUND = pygame.image.load(os.path.join(IMG_DIR, "Background/Background.png"))
+BG = pygame.image.load(os.path.join(IMG_DIR, 'Background/Floor.png'))
+
+
 DEFAULT_TYPE = "default"
 SHIELD_TYPE = 'shield'
 HAMMER_TYPE = "hammer"
