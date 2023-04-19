@@ -51,6 +51,7 @@ class Dinosaur:
 
     def update(self, user_input):
         if user_input[pygame.K_UP] and not self.dino_jump:
+            JUMP_SOUND.play()
             self.dino_jump = True
             self.dino_run = False
         if user_input[pygame.K_DOWN] and not self.dino_jump:

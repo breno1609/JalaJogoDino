@@ -85,6 +85,9 @@ SOUNDTRACK.set_volume(0.5)
 DEATHSOUND = pygame.mixer.Sound('dino_runner/assets/Sounds/death.wav')
 HITSOUND = pygame.mixer.Sound('dino_runner/assets/Sounds/hit01.wav')
 
+JUMP_SOUND = pygame.mixer.Sound('dino_runner/assets/Sounds/jump.wav')
+JUMP_SOUND.set_volume(0.7)
+
 DEFAULT_TYPE = "default"
 SHIELD_TYPE = 'shield'
 HAMMER_TYPE = "hammer"
