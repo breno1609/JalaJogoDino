@@ -6,6 +6,7 @@ from dino_runner.components.obstacles.bird import *
 from dino_runner.utils.constants import *
 from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 from dino_runner.components.obstacles.cloud_manager import Cloud
+from dino_runner.components.game import *
 
 
 class ObstacleManager:
