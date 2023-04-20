@@ -43,6 +43,7 @@ class PowerUpManager:
             if game.player.dino_rect.colliderect(power_up.rect):
                 power_up.start_time = pygame.time.get_ticks()
                 game.player.shield = True
+                game.player.hammer = True
                 game.player.has_power_up = True
                 game.player.type = power_up.type
                 game.player.power_up_time = power_up.start_time + (power_up.duration * 1000)

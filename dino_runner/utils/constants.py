@@ -91,6 +91,15 @@ JUMP_SOUND.set_volume(0.7)
 BACKGROUND = pygame.image.load(os.path.join(IMG_DIR, "Background/Background.png"))
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Background/Floor.png'))
 
+BIRD2 = [
+    pygame.image.load(os.path.join(IMG_DIR, "Bird2/Bird1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Bird2/Bird2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Bird2/Bird3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Bird2/Bird4.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Bird2/Bird5.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Bird2/Bird6.png"))
+]
+
 
 DEFAULT_TYPE = "default"
 SHIELD_TYPE = 'shield'

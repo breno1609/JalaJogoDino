@@ -20,17 +20,21 @@ class ObstacleManager:
         if game.life == 0:
             game.playing = False
             DEATHSOUND.play()
-            game.death_count += 1
     
     def update(self, game):
         if len(self.obstacles) == 0:
-            random_obstacle = random.randint(0, 2)
+            random_obstacle = random.randint(0, 3)
             if random_obstacle == 0:
-                self.obstacles.append(Cactus(SMALL_CACTUS))
+                self.obstacles.append(Cactus(SMALL_CACTUS, 325))
                 self.item = 1
             elif random_obstacle == 1:
-                self.obstacles.append(CactusGrandes(LARGE_CACTUS))
+                self.obstacles.append(Cactus(LARGE_CACTUS, 300))
                 self.item = 1
+            
+            elif random_obstacle == 3:
+                self.obstacles.append(Bird(BIRD2))
+                self.item = 2
+            
             else:
                 self.obstacles.append(Bird(BIRD))
                 self.item = 2
