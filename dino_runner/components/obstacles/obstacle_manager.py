@@ -51,9 +51,9 @@ class ObstacleManager:
                     self.lose_condition(game)
                     break
                 elif game.player.has_power_up:
-                    if game.player.type == SHIELD_TYPE and self.tipo_obstacle == 'bird':
+                    if game.player.type == SHIELD_TYPE and isinstance(obstacle, Bird):
                         self.obstacles.remove(obstacle)
-                    elif game.player.type == HAMMER_TYPE and self.tipo_obstacle == 'cactus':
+                    elif game.player.type == HAMMER_TYPE and isinstance(obstacle, Cactus):
                         self.obstacles.remove(obstacle)
                     else:
                         game.player.type = DEFAULT_TYPE
