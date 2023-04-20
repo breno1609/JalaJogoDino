@@ -30,10 +30,10 @@ class PowerUpManager:
             choice_randomic = random.randint(0, 1)
             if choice_randomic == 0:
                 self.life.append(Heart())
-                self.item = 1
+                self.tipo_poder = 'heart'
             elif choice_randomic == 1:
                 self.life.append(Coin(COIN))
-                self.item = 2
+                self.tipo_poder = 'coin'
 
     def update(self, game):
         self.generate_power_up(game.score)
@@ -53,10 +53,10 @@ class PowerUpManager:
         for heart in self.life:
             heart.update(game.game_speed, self.life)
             
-            if game.player.dino_rect.colliderect(heart.rect) and self.item == 1:
+            if game.player.dino_rect.colliderect(heart.rect) and self.tipo_poder == 'heart':
                 self.life.remove(heart)
                 game.life += 1
-            elif game.player.dino_rect.colliderect(heart.rect) and self.item == 2:
+            elif game.player.dino_rect.colliderect(heart.rect) and self.tipo_poder == 'coin':
                 self.life.remove(heart)
                 game.score += 100
 
