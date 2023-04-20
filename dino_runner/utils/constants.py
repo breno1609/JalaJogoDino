@@ -100,6 +100,11 @@ BIRD2 = [
     pygame.image.load(os.path.join(IMG_DIR, "Bird2/Bird6.png"))
 ]
 
+MENU_SOUND = pygame.mixer.Sound('dino_runner/assets/Sounds/menu_sound.mp3')
+MENU_SOUND.set_volume(0.05)
+
+SCORE_SOUND = pygame.mixer.Sound('dino_runner/assets/Sounds/score_sound.wav')
+
 
 DEFAULT_TYPE = "default"
 SHIELD_TYPE = 'shield'

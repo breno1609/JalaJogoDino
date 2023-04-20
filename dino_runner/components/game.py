@@ -38,11 +38,13 @@ class Game:
         while self.runnimg:
             if not self.playing:
                 self.show_menu()
+                MENU_SOUND.play()
         
         pygame.display.quit()
         pygame.quit()
     
     def run(self):
+        MENU_SOUND.stop()
         SOUNDTRACK.play(-1)
         self.playing = True
         self.obstacle_manager.reset_obstacles()
