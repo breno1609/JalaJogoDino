@@ -48,6 +48,7 @@ class Game:
         SOUNDTRACK.play(-1)
         self.playing = True
         self.obstacle_manager.reset_obstacles()
+        self.power_up_manager.reset_power_ups()
         while self.playing:
             self.events()
             self.update()
