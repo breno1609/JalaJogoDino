@@ -4,6 +4,7 @@ import random
 from dino_runner.components.obstacles.cactus import *
 from dino_runner.components.obstacles.bird import *
 from dino_runner.utils.constants import *
+from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 
 
 class ObstacleManager:
@@ -15,6 +16,7 @@ class ObstacleManager:
         pygame.time.delay(500)
         game.life -=1
         self.reset_obstacles()
+        game.death_count += 1
         if game.life == 0:
             game.playing = False
             DEATHSOUND.play()
@@ -46,7 +48,7 @@ class ObstacleManager:
                         self.obstacles.remove(obstacle)
                     else:
                         game.player.type = DEFAULT_TYPE
-                        self.lose_condition()
+                        self.lose_condition(game)
     
     def reset_obstacles(self):
         self.obstacles.clear()

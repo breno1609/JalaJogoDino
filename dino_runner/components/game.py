@@ -102,6 +102,11 @@ class Game:
             else:
                 self.player.has_power_up = False
                 self.player.type = DEFAULT_TYPE
+                
+    def reset_time(self):
+        self.player.has_power_up = False
+        self.player.type = DEFAULT_TYPE
+        self.player.power_up_time = 0
 
     def draw_background(self):
         image_width = BG.get_width()
