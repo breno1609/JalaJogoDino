@@ -26,18 +26,18 @@ class ObstacleManager:
             random_obstacle = random.randint(0, 3)
             if random_obstacle == 0:
                 self.obstacles.append(Cactus(SMALL_CACTUS, 325))
-                self.item = 1
+                self.tipo_obstacle = 'cactus'
             elif random_obstacle == 1:
                 self.obstacles.append(Cactus(LARGE_CACTUS, 300))
-                self.item = 1
+                self.tipo_obstacle = 'cactus'
             
             elif random_obstacle == 3:
                 self.obstacles.append(Bird(BIRD2))
-                self.item = 2
+                self.tipo_obstacle = 'bird'
             
             else:
                 self.obstacles.append(Bird(BIRD))
-                self.item = 2
+                self.tipo_obstacle = 'bird'
         
         for obstacle in self.obstacles:
             obstacle.update(game.game_speed, self.obstacles)
@@ -46,9 +46,9 @@ class ObstacleManager:
                     self.lose_condition(game)
                     break
                 elif game.player.has_power_up:
-                    if game.player.type == SHIELD_TYPE and self.item == 2:
+                    if game.player.type == SHIELD_TYPE and self.tipo_obstacle == 'bird':
                         self.obstacles.remove(obstacle)
-                    elif game.player.type == HAMMER_TYPE and self.item == 1:
+                    elif game.player.type == HAMMER_TYPE and self.tipo_obstacle == 'cactus':
                         self.obstacles.remove(obstacle)
                     else:
                         game.player.type = DEFAULT_TYPE
