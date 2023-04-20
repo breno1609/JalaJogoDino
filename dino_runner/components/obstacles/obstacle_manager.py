@@ -38,9 +38,6 @@ class ObstacleManager:
             if game.player.dino_rect.colliderect(obstacle.rect):
                 if not game.player.has_power_up:
                     self.lose_condition(game)
-                    DEATHSOUND.play()
-                    pygame.time.delay(500)
-                    game.death_count+=1
                     break
                 elif game.player.has_power_up:
                     if game.player.type == SHIELD_TYPE and self.item == 2:
@@ -49,9 +46,7 @@ class ObstacleManager:
                         self.obstacles.remove(obstacle)
                     else:
                         game.player.type = DEFAULT_TYPE
-                        pygame.time.delay(1000)
-                        game.playing = False
-                        game.death_count += 1
+                        self.lose_condition()
     
     def reset_obstacles(self):
         self.obstacles.clear()
