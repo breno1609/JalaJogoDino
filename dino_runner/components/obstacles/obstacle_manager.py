@@ -5,11 +5,13 @@ from dino_runner.components.obstacles.cactus import *
 from dino_runner.components.obstacles.bird import *
 from dino_runner.utils.constants import *
 from dino_runner.components.power_ups.power_up_manager import PowerUpManager
+from dino_runner.components.obstacles.cloud_manager import Cloud
 
 
 class ObstacleManager:
     def __init__(self):
         self.obstacles = []
+        self.cloud = []
         
     def lose_condition(self,game):
         HITSOUND.play()
@@ -39,6 +41,9 @@ class ObstacleManager:
                 self.obstacles.append(Bird(BIRD))
                 self.tipo_obstacle = 'bird'
         
+        if len(self.cloud) == 0:
+            self.cloud.append(Cloud(CLOUD))
+        
         for obstacle in self.obstacles:
             obstacle.update(game.game_speed, self.obstacles)
             if game.player.dino_rect.colliderect(obstacle.rect):
@@ -53,6 +58,9 @@ class ObstacleManager:
                     else:
                         game.player.type = DEFAULT_TYPE
                         self.lose_condition(game)
+        
+        for cloud in self.cloud:
+            cloud.update(game.game_speed, self.cloud)
     
     def reset_obstacles(self):
         self.obstacles.clear()
@@ -60,3 +68,6 @@ class ObstacleManager:
     def draw(self, screen):
         for obstacle in self.obstacles:
             obstacle.draw(screen)
+            
+        for cloud in self.cloud:
+            cloud.draw(screen)
